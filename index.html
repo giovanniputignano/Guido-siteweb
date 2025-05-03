@@ -201,8 +201,8 @@
                     <p class="font-semibold">Hotel Cenobio dei Dogi, Camogli (GE)</p>
                 </div>
                 <div class="mt-10">
-                    <a href="#iscrizioni" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg inline-block">
-                        Iscriviti ora
+                    <a href="#iscrizioni" id="intro-button" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg inline-block"> <!-- Added id="intro-button" -->
+                    Introduzione
                     </a>
                 </div>
             </div>
@@ -851,68 +851,115 @@
         </div>
     </section>
     
-    <!-- Iscrizioni section -->
-    <section id="iscrizioni" class="bg-gray-50 py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl font-bold text-center">Modalità di Iscrizione</h2>
-            
-            <div class="max-w-4xl mx-auto mt-12 bg-white rounded-lg shadow-lg p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">Iscrizione</h3>
-                        <p class="mb-4 text-gray-700">
-                            Per partecipare all'evento è necessaria l'iscrizione tramite la Segreteria Organizzativa. Le iscrizioni sono aperte fino ad esaurimento posti.
-                        </p>
-                        <p class="mb-4 text-gray-700">
-                            La partecipazione è gratuita per i professionisti sanitari (soggetta ad approvazione).
-                        </p>
-                        
-                        <div class="mt-8">
-                            <h4 class="font-semibold text-lg mb-3">Contatti per l'iscrizione:</h4>
-                            <p class="mb-2">
-                                <i class="fas fa-envelope text-blue-700 mr-2"></i>
-                                <a href="mailto:congressi@ecmnetwork.it" class="text-blue-600 hover:underline">congressi@ecmnetwork.it</a>
-                            </p>
-                            <p>
-                                <i class="fas fa-phone text-blue-700 mr-2"></i>
-                                <a href="tel:+390817879520" class="text-blue-600 hover:underline">081.7879520 (int. 4)</a>
-                            </p>
-                        </div>
+    <!-- Slide Introduttive Section -->
+    <section id="iscrizioni" class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden">
+
+        <!-- Backgrounds Container -->
+        <div id="slideshow-backgrounds" class="absolute inset-0 w-full h-full">
+            <!-- Background per Slide 1 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/Relitto-Aereo.jpg');"></div>
+            <!-- Background per Slide 2 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/03.06.jpg');"></div>
+            <!-- Background per Slide 3 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/sea-sunset-fbfdc495xk79mhhq.jpg');"></div>
+            <!-- Background per Slide 4 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/pexels-photo-6526856.jpeg');"></div>
+            <!-- Se aggiungi altre slide, aggiorna anche qui i background -->
+        </div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 w-full h-full bg-blue-800 bg-opacity-60 z-10"></div>
+
+
+        <div class="container mx-auto px-4 text-center text-white relative z-20">
+
+            <div id="slideshow-container" class="relative max-w-3xl mx-auto bg-blue-700 bg-opacity-80 rounded-lg shadow-xl p-8 md:p-12 overflow-hidden" style="min-height: 450px;">
+
+                <!-- NEW Slide 1 (Content from original Slide 2) -->
+                <div class="slide active-slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">VISIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "La visione senza azione è un sogno ad occhi aperti. L'azione senza visione è un incubo."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#futuro</span>
+                        <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#strategia</span>
                     </div>
-                    
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-blue-700 mb-4">Informazioni utili</h3>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span>Compilare il modulo di iscrizione con tutti i dati richiesti</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span>Indicare l'appartenenza professionale e la specialità</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span>Attendere conferma dell'iscrizione via email</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span>Per ottenere i crediti formativi è necessaria la partecipazione ad almeno il 90% delle sessioni</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
-                                <span>Il questionario di apprendimento deve essere completato al termine dell'evento</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="mt-8">
-                            <a href="#contatti" class="btn-primary text-white font-bold py-2 px-6 rounded-full shadow-md inline-block">
-                                Contatta la segreteria
-                            </a>
-                        </div>
+                    <div class="flex justify-center mt-8"> <!-- Removed space-x, only one button -->
+                        <!-- Removed INDIETRO button -->
+                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
+                            CONTINUA
+                        </button>
                     </div>
                 </div>
+
+                <!-- NEW Slide 2 (Content from original Slide 3) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">INNOVAZIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "L'innovazione distingue un leader da un seguace."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-yellow-500 text-white text-sm font-medium px-4 py-1 rounded-full">#progresso</span>
+                        <span class="bg-yellow-500 text-white text-sm font-medium px-4 py-1 rounded-full">#idee</span>
+                    </div>
+                     <div class="flex justify-center space-x-6 mt-8">
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
+                            INDIETRO
+                        </button>
+                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
+                            CONTINUA
+                        </button>
+                    </div>
+                </div>
+
+                <!-- NEW Slide 3 (Content from original Slide 4) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">COLLABORAZIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "Da soli possiamo fare così poco; insieme possiamo fare così tanto."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">#teamwork</span>
+                        <span class="bg-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">#sinergia</span>
+                    </div>
+                     <div class="flex justify-center space-x-6 mt-8">
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
+                            INDIETRO
+                        </button>
+                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
+                            CONTINUA
+                        </button>
+                    </div>
+                </div>
+
+                <!-- NEW Slide 4 (Content from original Slide 5) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">FUTURO</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "Il modo migliore per predire il futuro è crearlo."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#proattività</span>
+                        <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#costruzione</span>
+                    </div>
+                     <div class="flex justify-center space-x-6 mt-8">
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
+                            INDIETRO
+                        </button>
+                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
+                            VAI AL SITO
+                        </button>
+                    </div>
+                </div>
+                <!-- Original Slide 1 ("CAPACITÀ") has been removed -->
+
             </div>
+
+            <!-- Navigation Dots -->
+            <div id="slide-dots" class="flex justify-center space-x-2 mt-8">
+                <!-- Dots will be generated by JavaScript -->
+            </div>
+
         </div>
     </section>
     
@@ -1165,33 +1212,138 @@
     </footer>
     
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Hide mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-        
-        // Smooth scrolling for all internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- Get Elements ---
+            const slides = document.querySelectorAll('#slideshow-container .slide');
+            const backgrounds = document.querySelectorAll('#slideshow-backgrounds .slide-bg');
+            const dotsContainer = document.getElementById('slide-dots');
+            let currentSlide = 0; // Tracks the currently visible slide index
+
+            // Basic check for consistency
+            if (slides.length !== backgrounds.length) {
+                console.error("Mismatch between number of slides and backgrounds!");
+                // Optionally return or handle this error if backgrounds are critical
+            }
+             // Check if dotsContainer exists
+            if (!dotsContainer) {
+                 console.error("Dots container not found!");
+                 return; // Exit if essential elements are missing
+            }
+
+
+            // --- Function to display a specific slide and its background ---
+            function showSlide(index) {
+                // Ensure index is within the valid range (0 to slides.length - 1)
+                if (index < 0 || index >= slides.length) {
+                    // console.warn("Attempted to navigate outside slide bounds:", index);
+                    return; // Do nothing if index is out of bounds
+                }
+
+                // Hide all slides and backgrounds first
+                slides.forEach((slide) => {
+                    slide.classList.remove('active-slide', 'opacity-100');
+                    slide.classList.add('opacity-0');
+                });
+                backgrounds.forEach((bg) => {
+                    bg.classList.remove('opacity-100');
+                    bg.classList.add('opacity-0');
+                });
+                // Hide all dots (if dots exist)
+                if (dots && dots.length > 0) {
+                    dots.forEach((dot) => {
+                        dot.classList.remove('opacity-100');
+                        dot.classList.add('opacity-50', 'hover:opacity-75');
                     });
                 }
+
+
+                // Show the target slide, background, and dot
+                slides[index].classList.add('active-slide', 'opacity-100');
+                slides[index].classList.remove('opacity-0');
+
+                if (backgrounds[index]) {
+                    backgrounds[index].classList.add('opacity-100');
+                    backgrounds[index].classList.remove('opacity-0');
+                }
+
+                 if (dots && dots[index]) {
+                    dots[index].classList.add('opacity-100');
+                    dots[index].classList.remove('opacity-50', 'hover:opacity-75');
+                 }
+
+
+                // Update the current slide index tracker
+                currentSlide = index;
+            }
+
+            // --- Create Navigation Dots ---
+            // Clear existing dots first in case the script runs multiple times
+            dotsContainer.innerHTML = '';
+            slides.forEach((slide, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors', 'duration-300');
+                dot.classList.add('bg-white', index === 0 ? 'opacity-100' : 'opacity-50', 'hover:opacity-75');
+                dot.addEventListener('click', () => showSlide(index));
+                dotsContainer.appendChild(dot);
             });
+            // Select dots *after* they have been created
+            const dots = dotsContainer.querySelectorAll('button');
+
+
+            // --- Event Listener for "CONTINUA" / "VAI AL SITO" (Next) Buttons ---
+            document.querySelectorAll('.next-slide-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentSlide === slides.length - 1) {
+                        // If on the last slide, perform the final action
+                        window.location.href = '#home'; // Navigate to the main site section
+                    } else {
+                        // Otherwise, go to the next slide
+                        showSlide(currentSlide + 1);
+                    }
+                });
+            });
+
+            // --- Event Listener for "INDIETRO" (Previous) Buttons ---
+            document.querySelectorAll('.prev-slide-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    // Go to the previous slide (showSlide handles the check for index < 0)
+                    showSlide(currentSlide - 1);
+                });
+            });
+
+            // --- Initialize: Show the first slide (index 0) ---
+             // Ensure slides exist before initializing
+            if (slides.length > 0) {
+                showSlide(0);
+            } else {
+                 console.error("No slides found to initialize.");
+            }
+
+        }); // End of DOMContentLoaded listener
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const introButton = document.getElementById('intro-button');
+            const iscrizioniSection = document.getElementById('iscrizioni');
+
+            if (introButton && iscrizioniSection) {
+                introButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent the default jump behavior
+                    iscrizioniSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Mobile menu toggle (if not already handled elsewhere)
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
+
 </body>
 </html>
