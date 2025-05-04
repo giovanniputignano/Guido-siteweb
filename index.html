@@ -101,18 +101,27 @@
             box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4); /* Updated shadow color */
         }
         .sponsor-card {
-            height: 200px;
+            height: 130px; /* Adjusted height */
             display: flex;
             align-items: center;
             justify-content: center;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px; /* Changed to match example (Tailwind rounded-lg) */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Changed to a more subtle shadow (Tailwind shadow-sm) */
+            border: 1px solid #e2e8f0; /* Kept light gray border (Tailwind gray-200) */
             transition: all 0.3s ease;
+            padding: 1rem; /* Kept padding */
         }
         .sponsor-card:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Adjusted hover shadow (Tailwind shadow-md) */
+            border-color: #cbd5e1; /* Kept darker border on hover (Tailwind gray-300) */
+            transform: translateY(-2px); /* Slightly adjusted hover lift */
+        }
+        /* Ensure images inside don't exceed card padding */
+        .sponsor-card img {
+            max-width: 100%;
+            /* Keep the max-h-14 class on the img tags in HTML */
+            object-fit: contain;
         }
         .section-title {
             position: relative;
@@ -874,8 +883,8 @@
 
             <div id="slideshow-container" class="relative max-w-3xl mx-auto bg-blue-700 bg-opacity-80 rounded-lg shadow-xl p-8 md:p-12 overflow-hidden" style="min-height: 450px;">
 
-                <!-- NEW Slide 1 (Content from original Slide 2) -->
-                <div class="slide active-slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                <!-- Slide 2: VISIONE -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
                     <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">VISIONE</h2>
                     <blockquote class="text-xl md:text-2xl italic mb-8">
                         "La visione senza azione è un sogno ad occhi aperti. L'azione senza visione è un incubo."
@@ -884,11 +893,8 @@
                         <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#futuro</span>
                         <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#strategia</span>
                     </div>
-                    <div class="flex justify-center mt-8"> <!-- Removed space-x, only one button -->
-                        <!-- Removed INDIETRO button -->
-                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
-                            CONTINUA
-                        </button>
+                    <div class="flex justify-center space-x-6 mt-8">
+                         <!-- Buttons removed as per plan -->
                     </div>
                 </div>
 
@@ -903,12 +909,7 @@
                         <span class="bg-yellow-500 text-white text-sm font-medium px-4 py-1 rounded-full">#idee</span>
                     </div>
                      <div class="flex justify-center space-x-6 mt-8">
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
-                            INDIETRO
-                        </button>
-                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
-                            CONTINUA
-                        </button>
+                        <!-- Buttons removed -->
                     </div>
                 </div>
 
@@ -923,12 +924,7 @@
                         <span class="bg-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">#sinergia</span>
                     </div>
                      <div class="flex justify-center space-x-6 mt-8">
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
-                            INDIETRO
-                        </button>
-                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
-                            CONTINUA
-                        </button>
+                        <!-- Buttons removed -->
                     </div>
                 </div>
 
@@ -942,14 +938,12 @@
                         <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#proattività</span>
                         <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#costruzione</span>
                     </div>
-                     <div class="flex justify-center space-x-6 mt-8">
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 prev-slide-btn">
-                            INDIETRO
-                        </button>
-                        <button class="btn-primary text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105 next-slide-btn">
-                            VAI AL SITO
-                        </button>
-                    </div>
+                 <div class="flex justify-center space-x-6 mt-8">
+                    <!-- KEEP THIS LINK -->
+                    <a href="gioco.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                        VAI AL GIOCO
+                    </a>
+                </div>
                 </div>
                 <!-- Original Slide 1 ("CAPACITÀ") has been removed -->
 
@@ -1018,28 +1012,28 @@
                 <h3 class="text-2xl font-bold text-center mb-8" style="color: #0F52BA;">CONTRIBUTOR</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"> 
                     <div class="sponsor-card">
-                        <img src="img/Astrazeneca-.png" alt="AstraZeneca" class="max-h-12 mx-auto">
+                        <img src="img/Astrazeneca-.png" alt="AstraZeneca" class="max-h-10 mx-auto">
                     </div>
                      <div class="sponsor-card">
-                        <img src="img/celltrion_CI.png" alt="Celltrion" class="max-h-22 mx-auto">
+                        <img src="img/celltrion_CI.png" alt="Celltrion" class="max-h-15 mx-auto"> <!-- Changed max-h-17 to max-h-14 -->
                     </div>
                     <div class="sponsor-card">
-                        <img src="img/Gilead_Sciences_logo.png" alt="Gilead" class="max-h-12 mx-auto">
+                        <img src="img/Gilead_Sciences_logo.png" alt="Gilead" class="max-h-10 mx-auto"> <!-- Changed max-h-17 to max-h-14 -->
                     </div>
                     <div class="sponsor-card">
                         <img src="img/Logo_IBSA.svg.png" alt="IBSA" class="max-h-12 mx-auto">
                     </div>
                     <div class="sponsor-card">
-                        <img src="img/Lundbeck.svg.png" alt="Lundbeck" class="max-h-17 mx-auto">
+                        <img src="img/Lundbeck.svg.png" alt="Lundbeck" class="max-h-14 mx-auto">
                     </div>
                     <div class="sponsor-card">
-                        <img src="img/Organon-logo.svg.png"Organon" class="max-h-12 mx-auto">
+                        <img src="img/Organon-logo.svg.png"Organon" class="max-h-7 mx-auto">
                     </div>
                     <div class="sponsor-card">
-                        <img src="img/sanofi-logo_brandlogos.net_c29es-512x512.png" alt="Sanofi" class="max-h-17 mx-auto">
+                        <img src="img/sanofi-logo_brandlogos.net_c29es-512x512.png" alt="Sanofi" class="max-h-16 mx-auto">
                     </div>
                     <div class="sponsor-card">
-                        <img src="img/Viatris.svg.png" alt="Viatris" class="max-h-12 mx-auto">
+                        <img src="img/Viatris.svg.png" alt="Viatris" class="max-h-10 mx-auto">
                     </div>
                 </div>
             </div>
@@ -1071,7 +1065,7 @@
                 <h3 class="text-2xl font-bold text-center mb-8" style="color: #4A4A4A;">ALTRI SPONSOR</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
                     <div class="sponsor-card">
-                        <img src="img/CSL Behring 2022.webp" alt="CSL Behring" class="max-h-12 mx-auto">
+                        <img src="img/CSL Behring 2022.webp" alt="CSL Behring" class="max-h-7 mx-auto">
                     </div>
                     <div class="sponsor-card">
                         <img src="img/Hoffmann-La_Roche_logo.svg.png" alt="Roche" class="max-h-12 mx-auto">
@@ -1099,7 +1093,7 @@
                         <h3 class="text-xl font-bold mb-6" style="color: #0F52BA;">Contributor</h3>
                         <div class="flex gap-8 justify-center">
                             <div class="sponsor-card inline-block">
-                                <img src="img/GSK_logo_2022.svg.png" alt="GSK" class="max-h-12 mx-auto">
+                                <img src="img/GSK_logo_2022.svg.png" alt="GSK" class="max-h-7 mx-auto">
                             </div>
                             <div class="sponsor-card inline-block">
                                 <img src="img/Takeda_Pharmaceutical_Company_logo.svg.png" alt="Takeda" class="max-h-12 mx-auto">
@@ -1211,125 +1205,9 @@
         </div>
     </footer>
     
+    <!-- Smooth scroll for Intro button -->
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // --- Get Elements ---
-            const slides = document.querySelectorAll('#slideshow-container .slide');
-            const backgrounds = document.querySelectorAll('#slideshow-backgrounds .slide-bg');
-            const dotsContainer = document.getElementById('slide-dots');
-            const homeSection = document.getElementById('home'); // Get the target section for "VAI AL SITO"
-            let currentSlide = 0; // Tracks the currently visible slide index
-            let dots = []; // Initialize dots array
-
-            // Basic check for consistency
-            if (slides.length !== backgrounds.length) {
-                console.error("Mismatch between number of slides and backgrounds!");
-            }
-             // Check if dotsContainer exists
-            if (!dotsContainer) {
-                 console.error("Dots container not found!");
-            }
-            // Check if homeSection exists
-            if (!homeSection) {
-                console.error("Home section (#home) not found for final scroll!");
-            }
-
-
-            // --- Function to display a specific slide and its background ---
-            function showSlide(index) {
-                // Ensure index is within the valid range (0 to slides.length - 1)
-                if (index < 0 || index >= slides.length) {
-                    return; // Do nothing if index is out of bounds
-                }
-
-                // Hide all slides and backgrounds first
-                slides.forEach((slide) => {
-                    slide.classList.remove('active-slide', 'opacity-100');
-                    slide.classList.add('opacity-0');
-                });
-                backgrounds.forEach((bg) => {
-                    bg.classList.remove('opacity-100');
-                    bg.classList.add('opacity-0');
-                });
-                // Update dots (if dots exist)
-                if (dots.length > 0) {
-                    dots.forEach((dot) => {
-                        dot.classList.remove('opacity-100');
-                        dot.classList.add('opacity-50', 'hover:opacity-75');
-                    });
-                    if (dots[index]) {
-                       dots[index].classList.add('opacity-100');
-                       dots[index].classList.remove('opacity-50', 'hover:opacity-75');
-                    }
-                }
-
-
-                // Show the target slide, background
-                slides[index].classList.add('active-slide', 'opacity-100');
-                slides[index].classList.remove('opacity-0');
-
-                if (backgrounds[index]) {
-                    backgrounds[index].classList.add('opacity-100');
-                    backgrounds[index].classList.remove('opacity-0');
-                }
-
-                // Update the current slide index tracker
-                currentSlide = index;
-            }
-
-            // --- Create Navigation Dots ---
-            if (dotsContainer) {
-                dotsContainer.innerHTML = ''; // Clear existing dots
-                slides.forEach((slide, index) => {
-                    const dot = document.createElement('button');
-                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors', 'duration-300');
-                    dot.classList.add('bg-white', index === 0 ? 'opacity-100' : 'opacity-50', 'hover:opacity-75');
-                    dot.addEventListener('click', () => showSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-                // Select dots *after* they have been created
-                dots = dotsContainer.querySelectorAll('button');
-            }
-
-
-            // --- Event Listener for "CONTINUA" / "VAI AL SITO" (Next) Buttons ---
-            document.querySelectorAll('.next-slide-btn').forEach(button => {
-                button.addEventListener('click', (event) => { // Added event parameter
-                    if (currentSlide === slides.length - 1) {
-                        // If on the last slide, smoothly scroll to the home section
-                        if (homeSection) {
-                            event.preventDefault(); // Prevent potential default button actions
-                            homeSection.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            // Fallback if home section not found (optional)
-                            window.location.href = '#home';
-                        }
-                    } else {
-                        // Otherwise, go to the next slide
-                        showSlide(currentSlide + 1);
-                    }
-                });
-            });
-
-            // --- Event Listener for "INDIETRO" (Previous) Buttons ---
-            document.querySelectorAll('.prev-slide-btn').forEach(button => {
-                button.addEventListener('click', () => {
-                    // Go to the previous slide
-                    showSlide(currentSlide - 1);
-                });
-            });
-
-            // --- Initialize: Show the first slide (index 0) ---
-            if (slides.length > 0) {
-                showSlide(0);
-            } else {
-                 console.error("No slides found to initialize.");
-            }
-
-        }); // End of DOMContentLoaded listener
-    </script>
-
-    <script>
+        // ... existing smooth scroll and mobile menu script ...
         document.addEventListener('DOMContentLoaded', () => {
             const introButton = document.getElementById('intro-button');
             const iscrizioniSection = document.getElementById('iscrizioni');
@@ -1341,7 +1219,7 @@
                 });
             }
 
-            // Mobile menu toggle (if not already handled elsewhere)
+            // Mobile menu toggle
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             if (menuToggle && mobileMenu) {
@@ -1350,6 +1228,157 @@
                 });
             }
         });
+    </script>
+
+    <!-- Slideshow Script (Auto-Advancing with pointer-events control) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- Get Elements ---
+            const slides = document.querySelectorAll('#slideshow-container .slide');
+            const backgrounds = document.querySelectorAll('#slideshow-backgrounds .slide-bg');
+            const dotsContainer = document.getElementById('slide-dots');
+            let currentSlide = 0;
+            let dots = [];
+            let slideInterval = null;
+            let isRunningAutomatically = false;
+            const slideDuration = 15000; // 15 seconds
+
+            // Basic checks
+            if (!slides || slides.length === 0) {
+                console.error("Slideshow Error: No slide elements found.");
+                return;
+            }
+            if (slides.length !== backgrounds.length) {
+                console.warn("Slideshow Warning: Mismatch between slides and backgrounds count.");
+            }
+            if (!dotsContainer) {
+                 console.warn("Slideshow Warning: Dots container '#slide-dots' not found.");
+            }
+
+            // --- Function to display a specific slide ---
+            function showSlide(index) {
+                if (index >= slides.length) {
+                    index = slides.length - 1;
+                }
+                if (index < 0) {
+                    index = slides.length - 1;
+                }
+
+                // Hide all slides and disable pointer events
+                slides.forEach((slide) => {
+                    slide.classList.remove('active-slide', 'opacity-100', 'pointer-events-auto'); // Remove active classes
+                    slide.classList.add('opacity-0', 'pointer-events-none'); // Add inactive classes
+                });
+                backgrounds.forEach((bg) => {
+                    if (bg) {
+                        bg.classList.remove('opacity-100');
+                        bg.classList.add('opacity-0');
+                    }
+                });
+
+                // Update dots
+                if (dots.length > 0) {
+                    dots.forEach((dot) => {
+                        dot.classList.remove('opacity-100');
+                        dot.classList.add('opacity-50', 'hover:opacity-75');
+                    });
+                    if (dots[index]) {
+                       dots[index].classList.add('opacity-100');
+                       dots[index].classList.remove('opacity-50', 'hover:opacity-75');
+                    }
+                }
+
+                // Show the target slide and enable pointer events
+                if (slides[index]) {
+                    slides[index].classList.remove('opacity-0', 'pointer-events-none'); // Remove inactive classes
+                    slides[index].classList.add('active-slide', 'opacity-100', 'pointer-events-auto'); // Add active classes
+                }
+                if (backgrounds[index]) {
+                    backgrounds[index].classList.remove('opacity-0');
+                    backgrounds[index].classList.add('opacity-100');
+                }
+
+                currentSlide = index;
+            }
+
+            // --- Function to advance to the next slide ---
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                showSlide(nextIndex);
+            }
+
+            // --- Function to start the automatic slideshow ---
+            function startSlideshow() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                }
+                if (isRunningAutomatically) {
+                    slideInterval = setInterval(nextSlide, slideDuration);
+                    console.log('Slideshow started automatically.');
+                }
+            }
+
+            // --- Function to stop the automatic slideshow ---
+            function stopSlideshow(manualStop = false) {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                    console.log(`Slideshow stopped ${manualStop ? 'manually' : '(e.g., hover)'}.`);
+                }
+                if (manualStop) {
+                    isRunningAutomatically = false;
+                }
+            }
+
+            // --- Create Navigation Dots ---
+            if (dotsContainer) {
+                dotsContainer.innerHTML = ''; // Clear existing dots
+                slides.forEach((slide, index) => {
+                    const dot = document.createElement('button');
+                    // ... (dot creation code remains the same) ...
+                    dot.setAttribute('type', 'button');
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-opacity', 'duration-300', 'cursor-pointer', 'bg-white');
+                    dot.classList.add(index === 0 ? 'opacity-100' : 'opacity-50', 'hover:opacity-75');
+                    dot.addEventListener('click', () => {
+                        stopSlideshow(true); // Stop auto-advance MANUALLY on dot navigation
+                        showSlide(index);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+                dots = dotsContainer.querySelectorAll('button');
+            }
+
+            // --- Initialize: Add pointer-events-none to all slides initially ---
+            // This ensures only the first slide (made active by showSlide) is clickable at start
+            slides.forEach(slide => {
+                slide.classList.add('pointer-events-none');
+            });
+
+            // --- Show the first slide and start the slideshow ---
+            showSlide(0); // This will make the first slide pointer-events-auto
+            isRunningAutomatically = true;
+            startSlideshow();
+
+            // Optional: Pause slideshow on hover
+            const slideshowContainer = document.getElementById('slideshow-container');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', () => {
+                    if (isRunningAutomatically && slideInterval) {
+                        stopSlideshow(false);
+                    }
+                });
+                slideshowContainer.addEventListener('mouseleave', () => {
+                    if (isRunningAutomatically && !slideInterval) {
+                        startSlideshow();
+                    }
+                });
+            }
+
+        }); // End of DOMContentLoaded listener
     </script>
 
 </body>

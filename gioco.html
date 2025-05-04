@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Sanitario Simulator | Pharma Academy 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --background-color: #f8fafc;
+            --text-color: #1e3a8a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: var(--background-color);
+        }
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .budget-bar {
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .budget-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+            margin: 10px 0;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        .impact-bar {
+            height: 24px;
+            background-color: #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .impact-progress {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.3s ease;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .research-bg {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+        }
+        .medicine-bg {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+        .tech-bg {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+        .staff-bg {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+        .efficiency-bg { background-color: #3b82f6; }
+        .quality-bg { background-color: #10b981; }
+        .innovation-bg { background-color: #8b5cf6; }
+        .accessibility-bg { background-color: #ef4444; }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="text-3xl font-bold mb-2">BUDGET SANITARIO SIMULATOR</h1>
+            <h2 class="text-xl">PHARMA ACADEMY 2025</h2>
+        </div>
+    </header>
+
+    <main class="container py-8">
+        <div class="card mb-8">
+            <p class="text-center text-lg mb-6">
+                Sperimenta le sfide della gestione delle risorse sanitarie in Italia. Distribuisci il budget disponibile tra diverse aree e osserva l'impatto delle tue scelte.
+            </p>
+        </div>
+
+        <!-- Budget Overview -->
+        <div class="card">
+            <h2 class="text-2xl font-bold text-center mb-6 text-blue-800">Budget Disponibile: €10,000,000</h2>
+
+            <div class="mb-6">
+                <div class="flex justify-between mb-2">
+                    <span class="font-semibold">Budget Rimanente</span>
+                    <span id="remainingBudget" class="font-semibold">€10,000,000</span>
+                </div>
+                <div class="budget-bar">
+                    <div id="budgetProgress" class="budget-progress" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Allocation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+            <!-- Research -->
+            <div class="card">
+                <div class="flex flex-col items-center mb-4">
+                    <div class="category-icon research-bg">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-blue-800">Ricerca</h3>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex justify-between">
+                        <span>Allocazione:</span>
+                        <span id="researchValue">€0</span>
+                    </div>
+                    <input type="range" id="researchSlider" class="slider" min="0" max="10000000" step="100000" value="0">
+                    <div class="flex justify-between text-sm">
+                        <span>€0</span>
+                        <span>€10M</span>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600">
+                    Finanzia la ricerca scientifica, lo sviluppo di nuovi trattamenti e la sperimentazione clinica.
+                </p>
+            </div>
+
+            <!-- Medications -->
+            <div class="card">
+                <div class="flex flex-col items-center mb-4">
+                    <div class="category-icon medicine-bg">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-blue-800">Farmaci</h3>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex justify-between">
+                        <span>Allocazione:</span>
+                        <span id="medicationsValue">€0</span>
+                    </div>
+                    <input type="range" id="medicationsSlider" class="slider" min="0" max="10000000" step="100000" value="0">
+                    <div class="flex justify-between text-sm">
+                        <span>€0</span>
+                        <span>€10M</span>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600">
+                    Copre il costo dei farmaci essenziali, innovativi e delle terapie avanzate per i pazienti.
+                </p>
+            </div>
+
+            <!-- Technology -->
+            <div class="card">
+                <div class="flex flex-col items-center mb-4">
+                    <div class="category-icon tech-bg">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-blue-800">Tecnologia</h3>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex justify-between">
+                        <span>Allocazione:</span>
+                        <span id="technologyValue">€0</span>
+                    </div>
+                    <input type="range" id="technologySlider" class="slider" min="0" max="10000000" step="100000" value="0">
+                    <div class="flex justify-between text-sm">
+                        <span>€0</span>
+                        <span>€10M</span>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600">
+                    Investi in attrezzature diagnostiche, sistemi informatici e tecnologie sanitarie avanzate.
+                </p>
+            </div>
+
+            <!-- Staff -->
+            <div class="card">
+                <div class="flex flex-col items-center mb-4">
+                    <div class="category-icon staff-bg">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-blue-800">Personale</h3>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex justify-between">
+                        <span>Allocazione:</span>
+                        <span id="staffValue">€0</span>
+                    </div>
+                    <input type="range" id="staffSlider" class="slider" min="0" max="10000000" step="100000" value="0">
+                    <div class="flex justify-between text-sm">
+                        <span>€0</span>
+                        <span>€10M</span>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600">
+                    Finanzia medici, infermieri, farmacisti e personale amministrativo essenziali per il sistema.
+                </p>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-center gap-4 mb-8">
+            <button id="resetBtn" class="btn btn-secondary">Reset</button>
+            <button id="evaluateBtn" class="btn btn-primary">Valuta Allocazione</button>
+        </div>
+
+        <!-- Impact Section -->
+        <h2 class="text-2xl font-bold text-center my-6 text-blue-800">Impatto della tua Allocazione</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Efficiency -->
+            <div class="card">
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Efficienza del Sistema Sanitario</h3>
+                <div class="impact-bar">
+                    <div id="efficiencyBar" class="impact-progress efficiency-bg" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between">
+                    <span>Livello di efficienza:</span>
+                    <span id="efficiencyValue">0%</span>
+                </div>
+            </div>
+
+            <!-- Quality -->
+            <div class="card">
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Qualità delle Cure</h3>
+                <div class="impact-bar">
+                    <div id="qualityBar" class="impact-progress quality-bg" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between">
+                    <span>Livello di qualità:</span>
+                    <span id="qualityValue">0%</span>
+                </div>
+            </div>
+
+            <!-- Innovation -->
+            <div class="card">
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Innovazione</h3>
+                <div class="impact-bar">
+                    <div id="innovationBar" class="impact-progress innovation-bg" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between">
+                    <span>Livello di innovazione:</span>
+                    <span id="innovationValue">0%</span>
+                </div>
+            </div>
+
+            <!-- Accessibility -->
+            <div class="card">
+                <h3 class="text-xl font-bold text-blue-800 mb-2">Accessibilità</h3>
+                <div class="impact-bar">
+                    <div id="accessibilityBar" class="impact-progress accessibility-bg" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between">
+                    <span>Livello di accessibilità:</span>
+                    <span id="accessibilityValue">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Section -->
+        <h2 class="text-2xl font-bold text-center my-6 text-blue-800">Analisi della tua Strategia</h2>
+
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-blue-800 mb-4">Valutazione Complessiva</h3>
+            <p id="overallFeedback" class="mb-4">Completa l'allocazione del budget per ricevere una valutazione.</p>
+
+            <h4 class="font-bold text-blue-700 mb-2">Punti di Forza</h4>
+            <ul id="strengthsList" class="list-disc pl-5 mb-4">
+                <li>In attesa di valutazione...</li>
+            </ul>
+
+            <h4 class="font-bold text-blue-700 mb-2">Aree di Miglioramento</h4>
+            <ul id="improvementsList" class="list-disc pl-5">
+                <li>In attesa di valutazione...</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Budget Sanitario Simulator | PHARMA ACADEMY 2025</p>
+            <p>Costruire il Futuro della Salute</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const researchSlider = document.getElementById('researchSlider');
+        const medicationsSlider = document.getElementById('medicationsSlider');
+        const technologySlider = document.getElementById('technologySlider');
+        const staffSlider = document.getElementById('staffSlider');
+
+        const researchValue = document.getElementById('researchValue');
+        const medicationsValue = document.getElementById('medicationsValue');
+        const technologyValue = document.getElementById('technologyValue');
+        const staffValue = document.getElementById('staffValue');
+
+        const remainingBudget = document.getElementById('remainingBudget');
+        const budgetProgress = document.getElementById('budgetProgress');
+
+        const efficiencyBar = document.getElementById('efficiencyBar');
+        const qualityBar = document.getElementById('qualityBar');
+        const innovationBar = document.getElementById('innovationBar');
+        const accessibilityBar = document.getElementById('accessibilityBar');
+
+        const efficiencyValue = document.getElementById('efficiencyValue');
+        const qualityValue = document.getElementById('qualityValue');
+        const innovationValue = document.getElementById('innovationValue');
+        const accessibilityValue = document.getElementById('accessibilityValue');
+
+        const overallFeedback = document.getElementById('overallFeedback');
+        const strengthsList = document.getElementById('strengthsList');
+        const improvementsList = document.getElementById('improvementsList');
+
+        const resetBtn = document.getElementById('resetBtn');
+        const evaluateBtn = document.getElementById('evaluateBtn');
+
+        // Constants
+        const TOTAL_BUDGET = 10000000;
+
+        // Format currency
+        function formatCurrency(value) {
+            if (value >= 1000000) {
+                return `€${(value / 1000000).toFixed(1)}M`;
+            } else {
+                return `€${value.toLocaleString('it-IT')}`;
+            }
+        }
+
+        // Update budget and impacts
+        function updateBudget() {
+            const research = parseInt(researchSlider.value);
+            const medications = parseInt(medicationsSlider.value);
+            const technology = parseInt(technologySlider.value);
+            const staff = parseInt(staffSlider.value);
+
+            const allocated = research + medications + technology + staff;
+            const remaining = TOTAL_BUDGET - allocated;
+
+            // Update displayed values
+            researchValue.textContent = formatCurrency(research);
+            medicationsValue.textContent = formatCurrency(medications);
+            technologyValue.textContent = formatCurrency(technology);
+            staffValue.textContent = formatCurrency(staff);
+
+            remainingBudget.textContent = formatCurrency(remaining);
+            budgetProgress.style.width = `${(remaining / TOTAL_BUDGET) * 100}%`;
+
+            // Check if over budget
+            if (remaining < 0) {
+                remainingBudget.style.color = 'red';
+                budgetProgress.style.backgroundColor = 'red';
+                evaluateBtn.disabled = true;
+            } else {
+                remainingBudget.style.color = '';
+                budgetProgress.style.backgroundColor = '';
+                evaluateBtn.disabled = false;
+            }
+
+            // Calculate impacts
+            calculateImpacts(research, medications, technology, staff);
+        }
+
+        // Calculate impacts of budget allocation
+        function calculateImpacts(research, medications, technology, staff) {
+            // Efficiency: Staff + Technology
+            const efficiencyScore = (staff * 0.5 + technology * 0.5) / TOTAL_BUDGET * 100;
+            efficiencyBar.style.width = `${Math.min(efficiencyScore, 100)}%`;
+            efficiencyValue.textContent = `${Math.round(efficiencyScore)}%`;
+
+            // Quality: Medications + Staff
+            const qualityScore = (medications * 0.6 + staff * 0.4) / TOTAL_BUDGET * 100;
+            qualityBar.style.width = `${Math.min(qualityScore, 100)}%`;
+            qualityValue.textContent = `${Math.round(qualityScore)}%`;
+
+            // Innovation: Research + Technology
+            const innovationScore = (research * 0.7 + technology * 0.3) / TOTAL_BUDGET * 100;
+            innovationBar.style.width = `${Math.min(innovationScore, 100)}%`;
+            innovationValue.textContent = `${Math.round(innovationScore)}%`;
+
+            // Accessibility: Medications + Staff
+            const accessibilityScore = (medications * 0.4 + staff * 0.6) / TOTAL_BUDGET * 100;
+            accessibilityBar.style.width = `${Math.min(accessibilityScore, 100)}%`;
+            accessibilityValue.textContent = `${Math.round(accessibilityScore)}%`;
+        }
+
+        // Generate feedback based on allocation
+        function generateFeedback() {
+            const research = parseInt(researchSlider.value);
+            const medications = parseInt(medicationsSlider.value);
+            const technology = parseInt(technologySlider.value);
+            const staff = parseInt(staffSlider.value);
+
+            const allocated = research + medications + technology + staff;
+
+            if (allocated < TOTAL_BUDGET * 0.9) {
+                overallFeedback.textContent = "Hai allocato solo una parte del budget disponibile. Considera di utilizzare più risorse per massimizzare l'impatto sul sistema sanitario.";
+                return;
+            }
+
+            // Calculate percentages
+            const researchPct = research / allocated * 100;
+            const medicationsPct = medications / allocated * 100;
+            const technologyPct = technology / allocated * 100;
+            const staffPct = staff / allocated * 100;
+
+            // Generate overall assessment
+            let overallAssessment = "";
+            const totalScore = (
+                parseInt(efficiencyValue.textContent) +
+                parseInt(qualityValue.textContent) +
+                parseInt(innovationValue.textContent) +
+                parseInt(accessibilityValue.textContent)
+            ) / 4;
+
+            if (totalScore < 20) {
+                overallAssessment = "La tua strategia di allocazione mostra uno sbilanciamento significativo che potrebbe compromettere l'efficacia complessiva del sistema sanitario.";
+            } else if (totalScore < 40) {
+                overallAssessment = "La tua strategia presenta alcune aree critiche che richiedono una revisione per garantire un sistema sanitario più equilibrato.";
+            } else if (totalScore < 60) {
+                overallAssessment = "La tua allocazione rappresenta un approccio moderatamente bilanciato, con alcune aree che potrebbero beneficiare di un'attenzione maggiore.";
+            } else if (totalScore < 80) {
+                overallAssessment = "Hai sviluppato una strategia ben bilanciata che dovrebbe portare a buoni risultati in diverse aree del sistema sanitario.";
+            } else {
+                overallAssessment = "Complimenti! La tua strategia di allocazione è eccellente e ben equilibrata, con un impatto positivo previsto su tutti gli aspetti del sistema sanitario.";
+            }
+
+            overallFeedback.textContent = overallAssessment;
+
+            // Generate strengths
+            const strengths = [];
+            if (researchPct >= 20) strengths.push("Forte investimento nella ricerca che favorirà lo sviluppo di nuove terapie e approcci medici innovativi.");
+            if (medicationsPct >= 20) strengths.push("Buona allocazione per i farmaci, garantendo accesso a terapie essenziali e innovative.");
+            if (technologyPct >= 20) strengths.push("Significativo investimento tecnologico che migliorerà l'efficienza e la precisione diagnostica.");
+            if (staffPct >= 20) strengths.push("Adeguato finanziamento del personale sanitario, elemento fondamentale per la qualità dell'assistenza.");
+
+            if (Math.abs(researchPct - medicationsPct) < 10 &&
+                Math.abs(medicationsPct - technologyPct) < 10 &&
+                Math.abs(technologyPct - staffPct) < 10) {
+                strengths.push("Allocazione molto bilanciata tra le diverse aree, che favorisce uno sviluppo armonico del sistema sanitario.");
+            }
+
+            // Generate improvement areas
+            const improvements = [];
+            if (researchPct < 15) improvements.push("Incrementare gli investimenti nella ricerca potrebbe accelerare l'innovazione e lo sviluppo di nuovi trattamenti.");
+            if (medicationsPct < 15) improvements.push("Un budget maggiore per i farmaci migliorerebbe l'accesso alle terapie essenziali e innovative.");
+            if (technologyPct < 15) improvements.push("Aumentare gli investimenti tecnologici potrebbe migliorare l'efficienza diagnostica e terapeutica.");
+            if (staffPct < 15) improvements.push("Maggiori risorse per il personale sanitario sono essenziali per garantire un'assistenza di qualità e accessibile.");
+
+            if (allocated < TOTAL_BUDGET) {
+                improvements.push(`Hai lasciato ${formatCurrency(TOTAL_BUDGET - allocated)} non allocati. Utilizzare l'intero budget disponibile massimizzerebbe l'impatto sul sistema sanitario.`);
+            }
+
+            // Update lists
+            strengthsList.innerHTML = '';
+            if (strengths.length === 0) {
+                strengthsList.innerHTML = '<li>Nessun punto di forza significativo identificato.</li>';
+            } else {
+                strengths.forEach(strength => {
+                    const li = document.createElement('li');
+                    li.textContent = strength;
+                    strengthsList.appendChild(li);
+                });
+            }
+
+            improvementsList.innerHTML = '';
+            if (improvements.length === 0) {
+                improvementsList.innerHTML = '<li>Nessuna area di miglioramento significativa identificata.</li>';
+            } else {
+                improvements.forEach(improvement => {
+                    const li = document.createElement('li');
+                    li.textContent = improvement;
+                    improvementsList.appendChild(li);
+                });
+            }
+        }
+
+        // Reset all values
+        function resetSimulator() {
+            researchSlider.value = 0;
+            medicationsSlider.value = 0;
+            technologySlider.value = 0;
+            staffSlider.value = 0;
+
+            updateBudget();
+
+            overallFeedback.textContent = "Completa l'allocazione del budget per ricevere una valutazione.";
+            strengthsList.innerHTML = '<li>In attesa di valutazione...</li>';
+            improvementsList.innerHTML = '<li>In attesa di valutazione...</li>';
+        }
+
+        // Event listeners
+        researchSlider.addEventListener('input', updateBudget);
+        medicationsSlider.addEventListener('input', updateBudget);
+        technologySlider.addEventListener('input', updateBudget);
+        staffSlider.addEventListener('input', updateBudget);
+
+        resetBtn.addEventListener('click', resetSimulator);
+        evaluateBtn.addEventListener('click', generateFeedback);
+
+        // Initialize
+        updateBudget();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Gioco</title>
+    <!-- You might want to link Tailwind CSS here too if you need styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add any game-specific styles here */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0; /* Example background */
+        }
+        .game-container {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="game-container">
+        <h1 class="text-3xl font-bold mb-4">Benvenuto al Gioco!</h1>
+        <p class="text-gray-700 mb-6">Qui puoi inserire il contenuto del tuo videogioco.</p>
+
+        <!-- Example: Placeholder for a game canvas or content -->
+        <div id="game-area" class="w-full h-64 bg-gray-300 border border-gray-400 mb-4">
+            <!-- Your game canvas or elements go here -->
+            <p class="p-4">Area di Gioco</p>
+        </div>
+
+        <a href="index.html" class="text-blue-600 hover:underline">Torna alla Home</a>
+    </div>
+
+    <!-- Add any game-specific JavaScript here -->
+    <!-- <script src="game_script.js"></script> -->
+
+</body>
+</html>
