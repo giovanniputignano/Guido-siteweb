@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharma Academy 2025 | Costruire il Futuro della Salute</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+:root {
+            --primary-color: #6a0dad; /* Changed from #0074b7 */
+            --secondary-color: #9370db; /* Changed from #00a778 */
+            --accent-color: #4b0082; /* Changed from #004d7a */
+            --light-bg: #f3e5f5; /* Changed from #f0f9ff */
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+    background-image: linear-gradient(rgba(106, 13, 173, 0.6), rgba(147, 112, 219, 0.5)), url('img/viandante.png');
+    background-size: cover;
+    background-position: center bottom; /* Sposta l'immagine verso il basso */
+    background-attachment: scroll; /* Assicura che l'immagine si comporti normalmente durante lo scorrimento */
+}
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 2rem;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -20px;
+            width: 2px;
+            background: #ddd;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .speaker-card:hover img {
+            transform: scale(1.05);
+        }
+        .speaker-card img {
+            transition: transform 0.3s ease;
+        }
+        section {
+            scroll-margin-top: 80px;
+            padding: 4rem 0;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4); /* Updated shadow color */
+        }
+        .sponsor-card {
+            height: 130px; /* Adjusted height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px; /* Changed to match example (Tailwind rounded-lg) */
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Changed to a more subtle shadow (Tailwind shadow-sm) */
+            border: 1px solid #e2e8f0; /* Kept light gray border (Tailwind gray-200) */
+            transition: all 0.3s ease;
+            padding: 1rem; /* Kept padding */
+        }
+        .sponsor-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Adjusted hover shadow (Tailwind shadow-md) */
+            border-color: #cbd5e1; /* Kept darker border on hover (Tailwind gray-300) */
+            transform: translateY(-2px); /* Slightly adjusted hover lift */
+        }
+        /* Ensure images inside don't exceed card padding */
+        .sponsor-card img {
+            max-width: 100%;
+            /* Keep the max-h-14 class on the img tags in HTML */
+            object-fit: contain;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        @media print {
+            .nav-container {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50 print:static">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-800 mr-10">
+                        <span class="gradient-text">Pharma</span> Academy 2025
+                    </h1>
+                </div>
+                
+                <div class="nav-container hidden md:block">
+                    <nav>
+                        <ul class="flex space-x-6">
+                            <li><a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a></li>
+                            <li><a href="#programma" class="nav-link text-gray-700 hover:text-blue-600">Programma</a></li>
+                            <li><a href="#relatori" class="nav-link text-gray-700 hover:text-blue-600">Relatori</a></li>
+                            <li><a href="#ecm" class="nav-link text-gray-700 hover:text-blue-600">Info ECM</a></li>
+                            <li><a href="#temi" class="nav-link text-gray-700 hover:text-blue-600">Temi</a></li>
+                            <li><a href="#iscrizioni" class="nav-link text-gray-700 hover:text-blue-600">Iscrizioni</a></li>
+                            <li><a href="#sponsor" class="nav-link text-gray-700 hover:text-blue-600">Sponsor</a></li>
+                            <li><a href="#contatti" class="nav-link text-gray-700 hover:text-blue-600">Contatti</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <nav>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a></li>
+                        <li><a href="#programma" class="block py-2 text-gray-700 hover:text-blue-600">Programma</a></li>
+                        <li><a href="#relatori" class="block py-2 text-gray-700 hover:text-blue-600">Relatori</a></li>
+                        <li><a href="#ecm" class="block py-2 text-gray-700 hover:text-blue-600">Info ECM</a></li>
+                        <li><a href="#temi" class="block py-2 text-gray-700 hover:text-blue-600">Temi</a></li>
+                        <li><a href="#iscrizioni" class="block py-2 text-gray-700 hover:text-blue-600">Iscrizioni</a></li>
+                        <li><a href="#sponsor" class="block py-2 text-gray-700 hover:text-blue-600">Sponsor</a></li>
+                        <li><a href="#contatti" class="block py-2 text-gray-700 hover:text-blue-600">Contatti</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero section -->
+    <section id="home" class="hero-section min-h-screen flex items-center pt-16 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center text-white py-20">
+                <h1 class="text-5xl font-bold mb-4">PHARMA ACADEMY 2025</h1>
+                <h2 class="text-3xl mb-6">Professionisti della salute a confronto</h2>
+                <h3 class="text-4xl font-bold mb-8">COSTRUIRE IL FUTURO DELLA SALUTE</h3>
+                <div class="text-xl mb-8">
+                    <p class="mb-2">08 - 09 maggio 2025</p>
+                    <p class="font-semibold">Hotel Cenobio dei Dogi, Camogli (GE)</p>
+                </div>
+                <div class="mt-10">
+                    <a href="#iscrizioni" id="intro-button" class="btn-primary text-white font-bold py-3 px-8 rounded-full shadow-lg inline-block"> <!-- Added id="intro-button" -->
+                    Introduzione
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">L'innovazione incontra la salute</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    La <strong>Pharma Academy 2025</strong> rappresenta un'opportunità imperdibile per un confronto tra i massimi esperti del settore sanitario e farmaceutico, per discutere le sfide e le opportunità del futuro della salute in Italia.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    In questo evento di due giorni esploreremo le più recenti innovazioni, dalla biologia sintetica all'intelligenza artificiale, e il loro impatto sulla sanità, con un focus particolare sulla sostenibilità del Sistema Sanitario Nazionale e sull'ottimizzazione delle cure.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="card bg-blue-50 p-6">
+                        <div class="text-center">
+                            <div class="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-md text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">25 Relatori Esperti</h3>
+                            <p class="text-gray-600">Professionisti di alto profilo dal mondo medico, accademico e manageriale</p>
+                        </div>
+                    </div>
+                    <div class="card bg-green-50 p-6">
+                        <div class="text-center">
+                            <div class="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-calendar-alt text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">2 Giorni Intensivi</h3>
+                            <p class="text-gray-600">7 ore formative accreditate ECM per l'aggiornamento professionale</p>
+                        </div>
+                    </div>
+                    <div class="card bg-cyan-50 p-6">
+                        <div class="text-center">
+                            <div class="rounded-full bg-cyan-100 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lightbulb text-cyan-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">Innovazione</h3>
+                            <p class="text-gray-600">Tecnologie all'avanguardia e nuovi modelli organizzativi per la sanità</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programma section -->
+    <section id="programma" class="bg-gray-50 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Programma del Congresso</h2>
+            
+            <div class="max-w-5xl mx-auto mt-12">
+                <!-- Giorno 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 mb-10">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-6 pb-3 border-b-2 border-blue-100">
+                        Giovedì 8 maggio 2025
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-blue-600 min-w-[120px]">09:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Apertura dei Lavori</h4>
+                                    <p class="text-gray-600 italic">A. Costantini</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-blue-600 min-w-[120px]">09:15</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Dalla teoria alla terapia: l'innovazione italiana nella biologia sintetica</h4>
+                                    <p class="text-gray-600 italic">G. Putignano</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-blue-600 min-w-[120px]">10:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Intelligenza Artificiale Generativa, tra visioni e allucinazioni</h4>
+                                    <p class="text-gray-600 italic">J. Perfetti</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-blue-600 min-w-[120px]">11:00</div>
+                                <div>
+                                    <p class="font-semibold">Coffee break</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-blue-600 min-w-[120px]">11:15</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Il giusto setting di cura: Il bilanciamento della prestazione ospedaliera e territoriale</h4>
+                                    <ul class="mt-2 space-y-2">
+                                        <li><span class="font-medium">L. Mantovani:</span> Epidemiologia e Bisogni</li>
+                                        <li><span class="font-medium">M. Altini:</span> scenari di assistenza ospedaliera e territoriale tra nuove tecnologie e (ri)organizzazione</li>
+                                        <li><span class="font-medium">G. Sosto:</span> nuovi scenari dell'assistenza territoriale</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-blue-600 min-w-[120px]">13:30</div>
+                                <div>
+                                    <p class="font-semibold">Light lunch</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-blue-600 min-w-[120px]">14:30 - 19:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-uppercase">ACCESSO ALLE CURE: DATI, ALGORITMI DECISIONALI, POLITICHE SANITARIE, SCELTE ORGANIZZATIVE</h4>
+                                    <div class="mt-4 space-y-4">
+                                        <div>
+                                            <h5 class="font-bold">Sostenibilità economica del SSN: Strumenti pianificazione e gestione della spesa farmaci innovativi</h5>
+                                            <p class="text-gray-600 italic">C. Jommi (U.P.O.), P. Crosasso (ASL Città di Torino), F. Schiavone - A. Bastone (Università degli studi di Napoli Parthenope)</p>
+                                            <p class="mt-1">Interventi e discussione plenaria</p>
+                                        </div>
+
+                                        <div>
+                                            <h5 class="font-bold">Nuovi processi organizzativi: ridefinire il ruolo del farmacista ospedaliero</h5>
+                                            <p class="text-gray-600 italic">E. Foglia - Il Progetto Tetris</p>
+                                            <p class="text-gray-600 italic">S. Beltramini (Genova), A. Mecozzi (Roma)</p>
+                                        </div>
+
+                                        <div>
+                                            <h5 class="font-bold">Early Access: un'opportunità da governare</h5>
+                                            <p class="text-gray-600 italic">A. Bortolami - E. Sangiorgi (Emilia Romagna), B. Rebesco (Liguria), U. Trama (Campania)</p>
+                                            <p class="mt-1">Interventi e discussione plenaria</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Giorno 2 -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-green-700 mb-6 pb-3 border-b-2 border-green-100">
+                        Venerdì 9 maggio 2025
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">08:45</div>
+                                <div>
+                                    <p>Iscrizione Partecipanti</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="font-bold text-xl mb-3 text-green-700">I Sessione - Evidenza e ricerca "Real World" in ambito farmaceutico: attualità e prospettive</div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">09:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Presente e futuro delle terapie oncologiche</h4>
+                                    <p class="text-gray-600 italic">R. Berardi</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">10:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Il valore della privacy</h4>
+                                    <p class="text-gray-600 italic">S. Masato</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">10:30</div>
+                                <div>
+                                    <p>Discussione plenaria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">11:00</div>
+                                <div>
+                                    <p class="font-semibold">Coffee break</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="font-bold text-xl mb-3 text-green-700">II Sessione - Nuovi scenari terapeutici & Real Word Evidence</div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">11:15</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Realizzare l'idea: esempi di progetti di ricerca</h4>
+                                    <p class="text-gray-600 italic">A. Costantini - F. Santoleri</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">12:15</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Approfondimenti e ricerca dai Farmacisti Ospedalieri Indipendenti</h4>
+                                    <p class="text-gray-600 italic">R. Lasala</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">12:45</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Strategia e strumenti di governance farmaceutica: l'approccio "FORIERO"</h4>
+                                    <p class="text-gray-600 italic">R. Giannini</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">13:15</div>
+                                <div>
+                                    <p>Interventi e discussione plenaria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">13:30</div>
+                                <div>
+                                    <p class="font-semibold">Light lunch</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">14:30</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Budget Impact Analysis nelle patologie croniche</h4>
+                                    <p class="text-gray-600 italic">A. Romagnoli</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">15:00</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Esempi di Farmacoutilizzazione applicata</h4>
+                                    <p class="text-gray-600 italic">F. Musicco</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">15:45</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Sostenibilità economica: modelli di minimizzazione dei costi nelle terapie onco-ematologiche, immunoterapia, terapie biologiche</h4>
+                                    <p class="text-gray-600 italic">P. Abrate</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-center">
+                                <div class="font-bold text-green-600 min-w-[120px]">16:00</div>
+                                <div>
+                                    <p>Interventi e discussione plenaria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">16:15</div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Conclusioni E T.H.M.</h4>
+                                    <p class="text-gray-600 italic">A. Costantini</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:items-start">
+                                <div class="font-bold text-green-600 min-w-[120px]">16:30 - 17:15</div>
+                                <div>
+                                    <p>Questionario di apprendimento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Relatori section -->
+    <section id="relatori" class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Faculty</h2>
+            
+            <div class="max-w-6xl mx-auto mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Relatore 1 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Paolo Abrate</div>
+                            <div class="text-gray-600">Dirigente Farmacista S.C. Farmacia Ospedaliera ASL TO4</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 2 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Mattia Altini</div>
+                            <div class="text-gray-600">Direttore Generale presso l'Azienda Usl di Modena</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 3 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Anna Bastone</div>
+                            <div class="text-gray-600">Research Fellow presso l'Università degli Studi di Napoli "Parthenope"</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 4 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Sabrina Beltramini</div>
+                            <div class="text-gray-600">Direttore U.O.C. Farmacia I.R.C.C.S. - Ospedale Policlinico San Martino - Genova</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 5 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Rossana Berardi</div>
+                            <div class="text-gray-600">Prof. Ordinario di Oncologia - Direttrice Scuola di Specializzazione in Oncologia Medica, Università Politecnica delle Marche</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 6 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Alberto Bortolami</div>
+                            <div class="text-gray-600">Responsabile Area Qualità delle Cure, Reti e Percorsi Settore Assistenza Ospedaliera - Direzione Generale cura della persona, salute e welfare - Regione Emilia Romagna</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 7 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Alberto Costantini</div>
+                            <div class="text-gray-600">Direttore Farmacia Ospedaliera Aziendale - ASL di Pescara</div>
+                            <div class="text-blue-600 text-sm mt-1">Responsabile Scientifico</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 8 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Paola Crosasso</div>
+                            <div class="text-gray-600">Direttore SC Farmacie Ospedaliere - Responsabile SSD Farmacia Malattie Infettive - ASL Città di Torino</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 9 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Emanuela Foglia</div>
+                            <div class="text-gray-600">Ricercatore Scuola di Ingegneria Gestionale e HD LAB – Università Carlo Cattaneo – LIUC</div>
+                            <div class="text-blue-600 text-sm mt-1">Advisory Committee</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 10 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Claudio Jommi</div>
+                            <div class="text-gray-600">Professore di Economia Aziendale, Dipartimento di Scienze del Farmaco, Università del Piemonte Orientale</div>
+                            <div class="text-blue-600 text-sm mt-1">Advisory Committee</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 11 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Romina Giannini</div>
+                            <div class="text-gray-600">Dirigente Farmacista ASL Taranto</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Relatore 12 -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Ruggero Lasala</div>
+                            <div class="text-gray-600">Farmacista Ospedaliero - ASL Bari</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Altri relatori possono essere aggiunti seguendo lo stesso formato -->
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Lorenzo Mantovani</div>
+                            <div class="text-gray-600">Professore Ordinario di Igiene e Sanità Pubblica - Dipartimento di Medicina e Chirurgia, Università degli Studi di Milano - Bicocca</div>
+                        </div>
+                    </div>
+                    
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Sarah Masato</div>
+                            <div class="text-gray-600">Responsabile Area Legale Scudomed Associazione – Health Risk Manager e Legal Advisor - Roma</div>
+                        </div>
+                    </div>
+                    
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Alessandra Mecozzi</div>
+                            <div class="text-gray-600">Direttore UOC Farmacia Ospedale S. Eugenio ASL Roma 2</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Felice Musicco</div>
+                            <div class="text-gray-600">Farmacista Dirigente - IRCCS IFO Regina Elena San Gallicano Roma</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Jacopo Perfetti</div>
+                            <div class="text-gray-600">Co-fondatore di PromptDesign.it</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Guido Putignano</div>
+                            <div class="text-gray-600">Ricercatore di biologia sintetica e di medicina rigenerativa - ETH Zürich - Zürich</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Barbara Rebesco</div>
+                            <div class="text-gray-600">Direttore S.C. Politiche del Farmaco, Dispositivi Medici, Protesica ed Integrativa - Direzione Sanitaria Alisa, Sistema Sanitario Regione Liguria - Genova</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Alessia Romagnoli</div>
+                            <div class="text-gray-600">Dirigente Farmacista presso Servizio Farmaceutico Territoriale ASL Lanciano - Vasto - Chieti</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Elisa Sangiorgi</div>
+                            <div class="text-gray-600">Dirigente Area Governo del Farmaco e dei Dispositivi Medici - Settore Assistenza Ospedaliera - Direzione Generale Cura della persona, salute e welfare Regione Emilia-Romagna</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Francesco Schiavone</div>
+                            <div class="text-gray-600">Professore in "Economia e Gestione delle Imprese", Università degli Studi di Napoli "Parthenope"</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Gennaro Sosto</div>
+                            <div class="text-gray-600">Direttore Generale ASL Salerno</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Fiorenzo Santoleri</div>
+                            <div class="text-gray-600">Direttore Farmacia Ospedaliera ASL Lanciano - Vasto - Chieti</div>
+                        </div>
+                    </div>
+
+                    <div class="speaker-card bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all p-6">
+                        <div class="flex flex-col">
+                            <div class="font-bold text-lg text-blue-700">Ugo Trama</div>
+                            <div class="text-gray-600">Dirigente UOD Politica del Farmaco e dei dispositivi medici Regione Campania</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ECM section -->
+    <section id="ecm" class="bg-blue-50 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Informazioni ECM</h2>
+            
+            <div class="max-w-4xl mx-auto mt-12 bg-white rounded-lg shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">Riferimenti ECM</h3>
+                        <p class="mb-2"><span class="font-semibold">N. ECM:</span> 6331-446073</p>
+                        <p class="mb-2"><span class="font-semibold">N. ore formative:</span> 7</p>
+                        <p class="mb-2"><span class="font-semibold">Nr. Crediti:</span> 7</p>
+                        <p class="mb-2"><span class="font-semibold">Area Formativa:</span> Acquisizione competenze tecnico-professionali</p>
+                        <p class="mb-2"><span class="font-semibold">Obiettivo formativo N. 25:</span> Farmaco epidemiologia, farmacoeconomia, farmacovigilanza</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-700 mb-4">Congresso rivolto a:</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Medico Chirurgo (Igiene, Epidemiologia e Sanità Pubblica)</li>
+                            <li>Farmacista (Farmacista Pubblico del SSN; Farmacista Territoriale)</li>
+                        </ul>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-lg mb-3">Provider ECM</h4>
+                            <p>ECM Network</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                    <p class="text-sm text-gray-700">
+                        <span class="font-bold">Nota:</span> Per ottenere i crediti formativi è necessaria la presenza documentata ad almeno il 90% della durata dell'evento e il superamento del questionario di apprendimento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Temi principali section -->
+    <section id="temi" class="bg-white py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Temi Principali</h2>
+            
+            <div class="max-w-5xl mx-auto mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-green-100 p-3 mr-4">
+                                <i class="fas fa-flask text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-green-700">Innovazione in Sanità</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Esplorazione delle più recenti innovazioni nel campo della biologia sintetica e della medicina rigenerativa, con un focus sull'applicabilità clinica e l'impatto sulla salute pubblica.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-blue-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                <i class="fas fa-brain text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-700">Intelligenza Artificiale</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Analisi del potenziale dell'AI generativa nel settore sanitario, tra opportunità concrete di implementazione e sfide tecniche ed etiche da affrontare per un'integrazione efficace.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-cyan-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-cyan-100 p-3 mr-4">
+                                <i class="fas fa-chart-pie text-cyan-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-cyan-700">Sostenibilità del SSN</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Strategie e modelli innovativi per garantire la sostenibilità economica del Sistema Sanitario Nazionale, con particolare attenzione alla gestione dei farmaci innovativi e alle terapie ad alto costo.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-indigo-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-indigo-100 p-3 mr-4">
+                                <i class="fas fa-laptop-medical text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-indigo-700">Tecnologie Digitali</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            L'impatto della trasformazione digitale sui processi sanitari, dall'organizzazione dei servizi all'analisi dei dati Real World Evidence per migliorare l'efficacia delle cure.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-purple-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-purple-100 p-3 mr-4">
+                                <i class="fas fa-hospital-alt text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-purple-700">Organizzazione Territoriale</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Nuovi modelli per l'assistenza territoriale e il bilanciamento con le prestazioni ospedaliere, con focus sulla continuità assistenziale e l'ottimizzazione delle risorse.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-pink-50 rounded-lg p-6 shadow-md hover:shadow-lg transition-all">
+                        <div class="flex items-center mb-4">
+                            <div class="rounded-full bg-pink-100 p-3 mr-4">
+                                <i class="fas fa-users text-pink-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-pink-700">Patient Empowerment</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Strategie per rafforzare il ruolo del paziente nei processi di cura, l'educazione sanitaria e il coinvolgimento attivo nel percorso terapeutico, bilanciando innovazione e accessibilità.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide Introduttive Section -->
+    <section id="iscrizioni" class="relative py-20 min-h-screen flex items-center justify-center overflow-hidden">
+
+        <!-- Backgrounds Container -->
+        <div id="slideshow-backgrounds" class="absolute inset-0 w-full h-full">
+            <!-- Background per Slide 1 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/Relitto-Aereo.jpg');"></div>
+            <!-- Background per Slide 2 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/03.06.jpg');"></div>
+            <!-- Background per Slide 3 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/sea-sunset-fbfdc495xk79mhhq.jpg');"></div>
+            <!-- Background per Slide 4 -->
+            <div class="slide-bg absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('img/pexels-photo-6526856.jpeg');"></div>
+            <!-- Se aggiungi altre slide, aggiorna anche qui i background -->
+        </div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 w-full h-full bg-blue-800 bg-opacity-60 z-10"></div>
+
+
+        <div class="container mx-auto px-4 text-center text-white relative z-20">
+
+            <div id="slideshow-container" class="relative max-w-3xl mx-auto bg-blue-700 bg-opacity-80 rounded-lg shadow-xl p-8 md:p-12 overflow-hidden" style="min-height: 450px;">
+
+                <!-- Slide 2: VISIONE -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">VISIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "La visione senza azione è un sogno ad occhi aperti. L'azione senza visione è un incubo."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#futuro</span>
+                        <span class="bg-green-500 text-white text-sm font-medium px-4 py-1 rounded-full">#strategia</span>
+                    </div>
+                    <div class="flex justify-center space-x-6 mt-8">
+                         <!-- Buttons removed as per plan -->
+                    </div>
+                </div>
+
+                <!-- NEW Slide 2 (Content from original Slide 3) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">INNOVAZIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "L'innovazione distingue un leader da un seguace."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-yellow-500 text-white text-sm font-medium px-4 py-1 rounded-full">#progresso</span>
+                        <span class="bg-yellow-500 text-white text-sm font-medium px-4 py-1 rounded-full">#idee</span>
+                    </div>
+                     <div class="flex justify-center space-x-6 mt-8">
+                        <!-- Buttons removed -->
+                    </div>
+                </div>
+
+                <!-- NEW Slide 3 (Content from original Slide 4) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">COLLABORAZIONE</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "Da soli possiamo fare così poco; insieme possiamo fare così tanto."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">#teamwork</span>
+                        <span class="bg-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">#sinergia</span>
+                    </div>
+                     <div class="flex justify-center space-x-6 mt-8">
+                        <!-- Buttons removed -->
+                    </div>
+                </div>
+
+                <!-- NEW Slide 4 (Content from original Slide 5) -->
+                <div class="slide absolute inset-0 p-8 md:p-12 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-0">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-center mb-12">FUTURO</h2>
+                    <blockquote class="text-xl md:text-2xl italic mb-8">
+                        "Il modo migliore per predire il futuro è crearlo."
+                    </blockquote>
+                    <div class="flex space-x-4 mb-8">
+                        <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#proattività</span>
+                        <span class="bg-red-500 text-white text-sm font-medium px-4 py-1 rounded-full">#costruzione</span>
+                    </div>
+                 <div class="flex justify-center space-x-6 mt-8">
+                    <!-- KEEP THIS LINK -->
+                    <a href="gioco.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                        VAI AL GIOCO
+                    </a>
+                </div>
+                </div>
+                <!-- Original Slide 1 ("CAPACITÀ") has been removed -->
+
+            </div>
+
+            <!-- Navigation Dots -->
+            <div id="slide-dots" class="flex justify-center space-x-2 mt-8">
+                <!-- Dots will be generated by JavaScript -->
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- Sponsor section -->
+    <section id="sponsor" class="bg-gray-50 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Sponsor</h2>
+
+            <!-- Add this line -->
+            <p class="text-center text-gray-600 italic mb-10">con il contributo non condizionante di</p>
+
+            <!-- Gold Sponsor -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #FFD700;">GOLD SPONSOR</h3>
+                <div class="flex justify-center">
+                    <div class="sponsor-card w-1/4">
+                        <img src="img/Daiichi-sankyo.png" alt="Daiichi Sankyo" class="max-h-24 mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Silver Sponsor -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #C0C0C0;">SILVER SPONSOR</h3>
+                <div class="flex justify-center">
+                    <div class="sponsor-card w-1/4">
+                        <img src="img/Boehiringer Ingelheim.png" alt="Boehringer Ingelheim" class="max-h-12 mx-auto"> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bronze Sponsor -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #CD7F32;">BRONZE SPONSOR</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto"> 
+                    <div class="sponsor-card">
+                        <img src="img/Almirall_Logo_2020.svg.png" alt="Almirall" class="max-h-12 mx-auto"> 
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Amgen-Pharma-50-2022-268x170.webp" alt="Amgen" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Chiesi_Logo_-_1.Primary_pantoni.png" alt="Chiesi" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/JJ_Logo_Stacked_Red_RGB.webp" alt="Johnson & Johnson" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/menarini.png" alt="Menarini" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/techdow.png" alt="Techdow" class="max-h-12 mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contributor -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #0F52BA;">CONTRIBUTOR</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 max-w-7xl mx-auto"> 
+                    <div class="sponsor-card">
+                        <img src="img/Astrazeneca-.png" alt="AstraZeneca" class="max-h-10 mx-auto">
+                    </div>
+                     <div class="sponsor-card">
+                        <img src="img/celltrion_CI.png" alt="Celltrion" class="max-h-15 mx-auto"> <!-- Changed max-h-17 to max-h-14 -->
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Gilead_Sciences_logo.png" alt="Gilead" class="max-h-10 mx-auto"> <!-- Changed max-h-17 to max-h-14 -->
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Logo_IBSA.svg.png" alt="IBSA" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Lundbeck.svg.png" alt="Lundbeck" class="max-h-14 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Organon-logo.svg.png"Organon" class="max-h-7 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/sanofi-logo_brandlogos.net_c29es-512x512.png" alt="Sanofi" class="max-h-16 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Viatris.svg.png" alt="Viatris" class="max-h-10 mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Base -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #555;">BASE</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+                    <div class="sponsor-card">
+                        <img src="img/Angelini_Pharma_-_Logo.svg.png" alt="Angelini Pharma" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/jazzpharma_logo_fullcolor.png" alt="Jazz Pharmaceuticals" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/MenariniStemline.webp" alt="Menarini Stemline" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Otsuka_Holdings_logo.svg.png" alt="Otsuka" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Sandoz-Logo-Sandoz-Blue-RGB.webp" alt="Sandoz" class="max-h-12 mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Altri Sponsor -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8" style="color: #4A4A4A;">ALTRI SPONSOR</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                    <div class="sponsor-card">
+                        <img src="img/CSL Behring 2022.webp" alt="CSL Behring" class="max-h-7 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Hoffmann-La_Roche_logo.svg.png" alt="Roche" class="max-h-12 mx-auto">
+                    </div>
+                    <div class="sponsor-card">
+                        <img src="img/Servier-logo-300x100.png" alt="Servier" class="max-h-12 mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Maggio Sponsors -->
+            <div class="mt-16 pt-8 border-t border-gray-300">
+                <h4 class="text-xl font-semibold text-center mb-10" style="color: var(--primary-color);">8 MAGGIO 2025</h4>
+                <div class="flex flex-col md:flex-row justify-center items-start gap-16">
+                    <!-- Bronze Sponsor (8 Maggio) -->
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-6" style="color: #CD7F32;">Bronze Sponsor</h3>
+                        <div class="sponsor-card inline-block">
+                            <img src="img/novartis_330x300.png" alt="Novartis" class="max-h-17 mx-auto">
+                        </div>
+                    </div>
+
+                    <!-- Contributor (8 Maggio) -->
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-6" style="color: #0F52BA;">Contributor</h3>
+                        <div class="flex gap-8 justify-center">
+                            <div class="sponsor-card inline-block">
+                                <img src="img/GSK_logo_2022.svg.png" alt="GSK" class="max-h-7 mx-auto">
+                            </div>
+                            <div class="sponsor-card inline-block">
+                                <img src="img/Takeda_Pharmaceutical_Company_logo.svg.png" alt="Takeda" class="max-h-12 mx-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- Contatti section -->
+    <section id="contatti" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">Contatti</h2>
+            
+            <div class="max-w-4xl mx-auto mt-12">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-8">
+                            <h3 class="text-xl font-bold text-blue-700 mb-4">Provider e Segreteria Organizzativa</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">ECM Network</h4>
+                                    <p class="text-gray-700">Centro Direzionale Isola E3</p>
+                                    <p class="text-gray-700">80143 Napoli</p>
+                                </div>
+                                
+                                <div>
+                                    <p class="mb-1">
+                                        <i class="fas fa-envelope text-blue-600 mr-2"></i>
+                                        <a href="mailto:congressi@ecmnetwork.it" class="text-blue-600 hover:underline">congressi@ecmnetwork.it</a>
+                                    </p>
+                                    <p class="mb-1">
+                                        <i class="fas fa-phone text-blue-600 mr-2"></i>
+                                        <a href="tel:+390817879520" class="text-blue-600 hover:underline">081.7879520 (int. 4)</a>
+                                    </p>
+                                    <p class="mb-1">
+                                        <i class="fas fa-globe text-blue-600 mr-2"></i>
+                                        <a href="http://www.ecmnetwork.it" target="_blank" class="text-blue-600 hover:underline">www.ecmnetwork.it</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="font-bold text-gray-800 mb-3">Sede dell'evento</h4>
+                                <p class="mb-1 text-gray-700">Hotel Cenobio dei Dogi</p>
+                                <p class="text-gray-700">Camogli (GE)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-600 text-white p-8">
+                            <h3 class="text-xl font-bold mb-4">Responsabile Scientifico</h3>
+                            <p class="mb-4">
+                                <span class="font-bold">Alberto Costantini</span><br>
+                                Direttore Farmacia Ospedaliera Aziendale<br>
+                                ASL di Pescara
+                            </p>
+                            
+                            <h3 class="text-xl font-bold mt-8 mb-4">Advisory Committee</h3>
+                            <ul class="space-y-1">
+                                <li>Mattia Altini</li>
+                                <li>Emanuela Foglia</li>
+                                <li>Claudio Jommi</li>
+                                <li>Fiorenzo Santoleri</li>
+                                <li>Gennaro Sosto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">
+                        <span class="gradient-text">Pharma</span> Academy 2025
+                    </h2>
+                    <p class="mt-2 text-gray-400">Costruire il futuro della salute</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <div class="flex">
+    <a href="https://www.linkedin.com/company/ecm-network/" class="text-gray-300 hover:text-white">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+</div>
+                </div>
+            </div>
+            
+            <hr class="my-6 border-gray-700">
+            
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-400">&copy; 2025 Pharma Academy. Tutti i diritti riservati.</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Cookie Policy</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white">Termini e Condizioni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Smooth scroll for Intro button -->
+    <script>
+        // ... existing smooth scroll and mobile menu script ...
+        document.addEventListener('DOMContentLoaded', () => {
+            const introButton = document.getElementById('intro-button');
+            const iscrizioniSection = document.getElementById('iscrizioni');
+
+            if (introButton && iscrizioniSection) {
+                introButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent the default jump behavior
+                    iscrizioniSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+
+    <!-- Slideshow Script (Auto-Advancing with pointer-events control) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- Get Elements ---
+            const slides = document.querySelectorAll('#slideshow-container .slide');
+            const backgrounds = document.querySelectorAll('#slideshow-backgrounds .slide-bg');
+            const dotsContainer = document.getElementById('slide-dots');
+            let currentSlide = 0;
+            let dots = [];
+            let slideInterval = null;
+            let isRunningAutomatically = false;
+            const slideDuration = 15000; // 15 seconds
+
+            // Basic checks
+            if (!slides || slides.length === 0) {
+                console.error("Slideshow Error: No slide elements found.");
+                return;
+            }
+            if (slides.length !== backgrounds.length) {
+                console.warn("Slideshow Warning: Mismatch between slides and backgrounds count.");
+            }
+            if (!dotsContainer) {
+                 console.warn("Slideshow Warning: Dots container '#slide-dots' not found.");
+            }
+
+            // --- Function to display a specific slide ---
+            function showSlide(index) {
+                if (index >= slides.length) {
+                    index = slides.length - 1;
+                }
+                if (index < 0) {
+                    index = slides.length - 1;
+                }
+
+                // Hide all slides and disable pointer events
+                slides.forEach((slide) => {
+                    slide.classList.remove('active-slide', 'opacity-100', 'pointer-events-auto'); // Remove active classes
+                    slide.classList.add('opacity-0', 'pointer-events-none'); // Add inactive classes
+                });
+                backgrounds.forEach((bg) => {
+                    if (bg) {
+                        bg.classList.remove('opacity-100');
+                        bg.classList.add('opacity-0');
+                    }
+                });
+
+                // Update dots
+                if (dots.length > 0) {
+                    dots.forEach((dot) => {
+                        dot.classList.remove('opacity-100');
+                        dot.classList.add('opacity-50', 'hover:opacity-75');
+                    });
+                    if (dots[index]) {
+                       dots[index].classList.add('opacity-100');
+                       dots[index].classList.remove('opacity-50', 'hover:opacity-75');
+                    }
+                }
+
+                // Show the target slide and enable pointer events
+                if (slides[index]) {
+                    slides[index].classList.remove('opacity-0', 'pointer-events-none'); // Remove inactive classes
+                    slides[index].classList.add('active-slide', 'opacity-100', 'pointer-events-auto'); // Add active classes
+                }
+                if (backgrounds[index]) {
+                    backgrounds[index].classList.remove('opacity-0');
+                    backgrounds[index].classList.add('opacity-100');
+                }
+
+                currentSlide = index;
+            }
+
+            // --- Function to advance to the next slide ---
+            function nextSlide() {
+                let nextIndex = currentSlide + 1;
+                if (nextIndex >= slides.length) {
+                    nextIndex = 0;
+                }
+                showSlide(nextIndex);
+            }
+
+            // --- Function to start the automatic slideshow ---
+            function startSlideshow() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                }
+                if (isRunningAutomatically) {
+                    slideInterval = setInterval(nextSlide, slideDuration);
+                    console.log('Slideshow started automatically.');
+                }
+            }
+
+            // --- Function to stop the automatic slideshow ---
+            function stopSlideshow(manualStop = false) {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                    slideInterval = null;
+                    console.log(`Slideshow stopped ${manualStop ? 'manually' : '(e.g., hover)'}.`);
+                }
+                if (manualStop) {
+                    isRunningAutomatically = false;
+                }
+            }
+
+            // --- Create Navigation Dots ---
+            if (dotsContainer) {
+                dotsContainer.innerHTML = ''; // Clear existing dots
+                slides.forEach((slide, index) => {
+                    const dot = document.createElement('button');
+                    // ... (dot creation code remains the same) ...
+                    dot.setAttribute('type', 'button');
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-opacity', 'duration-300', 'cursor-pointer', 'bg-white');
+                    dot.classList.add(index === 0 ? 'opacity-100' : 'opacity-50', 'hover:opacity-75');
+                    dot.addEventListener('click', () => {
+                        stopSlideshow(true); // Stop auto-advance MANUALLY on dot navigation
+                        showSlide(index);
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+                dots = dotsContainer.querySelectorAll('button');
+            }
+
+            // --- Initialize: Add pointer-events-none to all slides initially ---
+            // This ensures only the first slide (made active by showSlide) is clickable at start
+            slides.forEach(slide => {
+                slide.classList.add('pointer-events-none');
+            });
+
+            // --- Show the first slide and start the slideshow ---
+            showSlide(0); // This will make the first slide pointer-events-auto
+            isRunningAutomatically = true;
+            startSlideshow();
+
+            // Optional: Pause slideshow on hover
+            const slideshowContainer = document.getElementById('slideshow-container');
+            if (slideshowContainer) {
+                slideshowContainer.addEventListener('mouseenter', () => {
+                    if (isRunningAutomatically && slideInterval) {
+                        stopSlideshow(false);
+                    }
+                });
+                slideshowContainer.addEventListener('mouseleave', () => {
+                    if (isRunningAutomatically && !slideInterval) {
+                        startSlideshow();
+                    }
+                });
+            }
+
+        }); // End of DOMContentLoaded listener
+    </script>
+
+</body>
+</html>
