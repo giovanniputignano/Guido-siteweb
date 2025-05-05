@@ -32,6 +32,9 @@
         }
         .nav-link {
             position: relative;
+            /* Aggiungi transition per color E transform */
+            transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease; /* Aggiunto text-shadow */
+            display: inline-block; /* Necessario per applicare transform correttamente */
         }
         .nav-link:after {
             content: '';
@@ -42,6 +45,14 @@
             height: 2px;
             background: var(--secondary-color);
             transition: width 0.3s ease;
+        }
+        .nav-link:hover {
+             /* Imposta il colore del testo al passaggio del mouse */
+            color: var(--primary-color);
+            /* Aggiungi un leggero effetto di sollevamento */
+            transform: translateY(-2px);
+            /* Aggiungi un'ombra al testo per un effetto simile al pulsante */
+            text-shadow: 0 2px 4px rgba(106, 13, 173, 0.3); /* Ombra sottile con colore primario */
         }
         .nav-link:hover:after {
             width: 100%;
@@ -1208,10 +1219,35 @@
         </div>
     </footer>
     
-    <!-- Smooth scroll for Intro button -->
     <script>
-        // ... existing smooth scroll and mobile menu script ...
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for navigation links
+            const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor jump
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Use scrollIntoView as per original and plan
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' // Align the top of the target element to the top of the viewport
+                        });
+
+                        // Close mobile menu after clicking a link (from plan)
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Smooth scroll for Intro button (from original)
             const introButton = document.getElementById('intro-button');
             const iscrizioniSection = document.getElementById('iscrizioni');
 
@@ -1222,11 +1258,12 @@
                 });
             }
 
-            // Mobile menu toggle
+            // Mobile menu toggle (from original and plan)
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
+
             if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', () => {
+                menuToggle.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
                 });
             }
